@@ -1,0 +1,141 @@
+--------------
+Affilies :
+--------------
+AffiliesId: INT (6) Primary Key
+Nom: text
+Prenom: text not null
+Age: number
+Groupe: text
+Adresse: text
+club: text Foreign Key Club (ClubId)
+NumeroDossard:number not null 
+Entrainement: text Foreign Key Entrainement (EntrainementId)
+num_tel:varchar(15) number
+
+----------------
+Stades :
+----------------
+StadesId: INT (4) Primary Key
+Nom: text not null
+Adresse: text
+club_Affilie: INT (6) NOT NULL FOREIGN KEY club_Affilie (club_AffilieID)
+
+---------------
+Epreuves :
+----------------
+EpreuvesId : INT (5) Primary Key
+Nom : TEXT not null
+Distance : number
+Duree : number
+DateHeureDepart : number not null
+Type_epreuve:text Foreign Key Type_epreuve(Type_epreuveId)
+Classement :number Foreign Key Classement (ClassementId)
+Stades : INT (4) FOREIGN KEY Stades (StadeId)
+
+-------------
+Juges :
+----------
+JugesId : INT (6) Primary Key
+Nom : TEXT
+Prenom : TEXT not null
+Telephone : varchar(15)
+Adresse : TEXTE
+DateNaiss : Date
+epreuve:INT (5) Foreign Key epreuve (EpreuveId)
+
+-------------
+courses
+-----------------------
+CoursesId: Int(7) Primary Key
+Nom: Text
+Perso_Admin: Int(10) Foreign Key Perso_admin (Perso_adminId)
+categorie: Int(8) not null Foreign Key  categorie (categorieId)
+Epreuve: INT (5) Foreign Key Epreuve (EpreuveId)
+
+
+Classement :
+-----------------
+ClassementId : INT (4) Primary Key
+Points: Number not null
+Place: Varchar(2) not null Foreign Key  Place (PlaceId)
+Temps: Number
+Recompense: Text not null
+dossard: Number Foreign Key dossard(dossardId)
+
+----------------------------
+PersoAdmin : 
+-----------------------
+PersoAdminId: INT (10) Primary Key
+metier: Text
+anciennete: number not null
+gestion_course: Text Foreign Key gestion_course (gestion_courseId)
+Nom: text not null
+adresse: Text
+mail: Text
+num_tel:varchar(15)
+Classement: Int(4) Foreign Key Classement (ClassementId)
+
+
+------------------
+Type_epreuve
+-------------------
+Type_epreuveId: Int(6) Primary Key
+type: text 
+
+
+----------------------
+club
+----------------------
+ClubId: Int(5) Primary Key
+Nom: Text not null
+Stade: INT (4) Foreign Key Stade (StadeId)
+Affilie: int(6) Foreign Key Affilie (AffilieId)
+Perso_Admin: Int(10) Foreign Key Perso_admin (Perso_adminId)
+Num_tel: varchar(15)
+
+-------------------
+categorie
+------------------
+categorieId: Int(8) Primary Key
+Nom: Text
+
+---------------
+place  
+---------------
+PlaceId: int (1) Foreign Key
+Nom : Text
+Valeur: number
+
+------------------------
+entrainement
+---------------------------
+entrainementId: Int(6) Primary Key
+Date: Date
+Heure: number
+Type d_entrainement: Text not null
+Stades:INT (4) Foreign Key Stades (StadeId)
+--------------------------------
+Club_affilie
+-----------------------------
+Club_affilieId: Int(5) Primary Key 
+Nom_club_affilie: Text
+adresse: Text
+Numero_tel: Varchar(15)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
